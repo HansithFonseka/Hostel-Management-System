@@ -1,16 +1,19 @@
 import java.util.*;
 
 public class Student {
-    String name;
-    int RoomNumber;
-    int ListOfPayments;
+    private String name;
+    private int RoomNumber;
+    private int ListOfPayments;
+    private String roomType;
 
-    public Student(String name, int roomNumber, int listOfPayments) {
+    public Student(String name, int roomNumber, int listOfPayments, String roomType) {
         this.name = name;
         this.RoomNumber = roomNumber;
         this.ListOfPayments = listOfPayments;
+        this.roomType = roomType;
     }
 
+    // connect this wiht mysql;........................
     // getters and setters
     public String getName() {
         return name;
@@ -19,6 +22,14 @@ public class Student {
     public void setName(String name) {
         this.name = name;
     }
+    public String getRoomType() {
+        return roomType;
+    }
+
+    public void setRoomType(String roomType) {
+        this.roomType = roomType;
+    }
+
 
     public int getRoomNumber() {
         return RoomNumber;
@@ -37,8 +48,8 @@ public class Student {
     }
 
     // add a student
-    public static void addStudent(ArrayList<Student> students, String name, int roomNumber, int listOfPayments) {
-        students.add(new Student(name, roomNumber, listOfPayments));
+    public static void addStudent(ArrayList<Student> students, String name, int roomNumber, int listOfPayments, String roomType) {
+        students.add(new Student(name, roomNumber, listOfPayments, roomType));
     }
 
     // remove a student
@@ -52,7 +63,7 @@ public class Student {
 
     // list all students
     public void listStudents() {
-        System.out.println("Name: " + name + ", Room Number: " + RoomNumber);
+        System.out.println("Name: " + name + ", Room Number: " + RoomNumber + ", Room Type: " +roomType);
     }
 
     // check room availability
